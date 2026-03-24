@@ -1,0 +1,220 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.intro,
+.aboutPreview {
+  padding: 4rem 0;
+  background: var(--bg-light);
+}
+
+.intro h2,
+.aboutPreview h2,
+.visionMission h2,
+.services h2,
+.featured h2,
+.contactSection h2 {
+  color: var(--accent-red);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro p,
+.aboutPreview p,
+.visionMission p,
+.contactSection p {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  max-width: 700px;
+}
+
+.ctaBtn {
+  display: inline-block;
+  background: var(--accent-red);
+  color: white !important;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ctaBtn:hover {
+  background: var(--accent-red-dark);
+  transform: translateY(-2px);
+}
+
+.featured {
+  padding: 4rem 0;
+  background: white;
+}
+
+.featured h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.vehicleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.vehicleCard {
+  background: var(--bg-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.vehicleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cardImage {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discountBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--accent-red);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.vehicleCard h3 {
+  padding: 1rem 1rem 0;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+.pricing {
+  padding: 0.5rem 1rem;
+}
+
+.original {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-right: 0.5rem;
+}
+
+.final {
+  color: var(--accent-red);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.bookBtn {
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  background: var(--accent-red);
+  color: white;
+  font-weight: 600;
+  margin: 0 1rem 1rem;
+  border-radius: 8px;
+}
+
+.viewAll {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.viewAll:hover {
+  text-decoration: underline;
+}
+
+.services {
+  padding: 4rem 0;
+  background: var(--bg-charcoal);
+  color: white;
+}
+
+.services h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.serviceCard {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.serviceIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.serviceCard h3 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.serviceCard p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.visionMission {
+  padding: 4rem 0;
+  background: white;
+}
+
+.visionMission .block {
+  margin-bottom: 3rem;
+}
+
+.visionMission .block:last-child {
+  margin-bottom: 0;
+}
+
+.contactSection {
+  padding: 4rem 0;
+  background: var(--bg-light);
+  text-align: center;
+}
+
+.contactSection a {
+  color: var(--accent-red);
+}
+
+@media (max-width: 768px) {
+  .vehicleGrid {
+    grid-template-columns: 1fr;
+  }
+}

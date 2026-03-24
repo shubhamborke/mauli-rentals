@@ -1,0 +1,239 @@
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diagonalSplit {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.darkSection {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-charcoal);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+  z-index: 1;
+}
+
+.lightSection {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-light);
+  clip-path: polygon(0 60%, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* Red arrows from right - 3D chevron style */
+.arrowsRight {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  animation: slideInFromRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.arrow {
+  width: 60px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
+  animation: arrowPulse 2s ease-in-out infinite 1.5s;
+}
+
+.arrow:nth-child(2) {
+  animation-delay: 1.7s;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes arrowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Logo from left */
+.logoContainer {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 0;
+  animation: slideInFromLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  max-width: 90vw;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Hero content - center */
+.heroContent {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mainHeading {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.subHeading {
+  display: block;
+  font-size: 0.6em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.25rem;
+}
+
+.pinService {
+  margin: 1.5rem 0;
+}
+
+.pinIcon {
+  width: 36px;
+  height: 36px;
+  color: var(--accent-red);
+  margin-bottom: 0.5rem;
+}
+
+.pinService p {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-dark);
+  font-family: var(--font-base);
+}
+
+.whatsappBtn {
+  display: inline-block;
+  background: #25D366;
+  color: white !important;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin: 1rem 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.contactInfo {
+  margin-top: 2rem;
+}
+
+.ownerName {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  font-family: var(--font-base);
+}
+
+.phoneIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-blue);
+}
+
+.hero.done .arrowsRight,
+.hero.done .logoContainer {
+  animation: none;
+}
+
+@media (max-width: 768px) {
+  .logoContainer {
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, 0);
+  }
+
+  .hero.done .logoContainer {
+    transform: translate(-50%, 0);
+  }
+
+  .arrowsRight {
+    top: auto;
+    bottom: 20%;
+    right: 10%;
+    transform: none;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 55px;
+  }
+}
