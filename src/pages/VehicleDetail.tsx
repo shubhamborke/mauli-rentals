@@ -33,7 +33,7 @@ export function VehicleDetail() {
                 src={vehicle.images[activeImage] || vehicle.image}
                 alt={vehicle.name}
               />
-              <span className={styles.badge}>75% OFF</span>
+              <span className={styles.badge}>{vehicle.discountPercent}% OFF</span>
             </div>
             {vehicle.images.length > 1 && (
               <div className={styles.thumbnails}>

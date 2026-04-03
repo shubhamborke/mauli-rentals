@@ -13,7 +13,7 @@ export function Gallery() {
             <Link key={v.id} to={`/gallery/${v.id}`} className={styles.card}>
               <div className={styles.imageWrap}>
                 <img src={v.image} alt={v.name} />
-                <span className={styles.badge}>75% OFF</span>
+                <span className={styles.badge}>{v.discountPercent}% OFF</span>
               </div>
               <h3>{v.name}</h3>
               <p className={styles.desc}>{v.description.slice(0, 80)}...</p>

@@ -15,6 +15,7 @@ const serviceHighlights = [
 
 export function Home() {
   const featuredVehicles = vehicles.slice(0, 6);
+  console.log(vehicles)
 
   return (
     <>
@@ -40,7 +41,7 @@ export function Home() {
               <Link key={v.id} to={`/gallery/${v.id}`} className={styles.vehicleCard}>
                 <div className={styles.cardImage}>
                   <img src={v.image} alt={v.name} />
-                  <span className={styles.discountBadge}>75% OFF</span>
+                  <span className={styles.discountBadge}>{v.discountPercent}% OFF</span>
                 </div>
                 <h3>{v.name}</h3>
                 <div className={styles.pricing}>

@@ -7,6 +7,7 @@
   justify-content: center;
 }
 
+/* Diagonal (0,10%) → (100%,100%); .textClip* uses identical polygons — white on charcoal, dark on light */
 .diagonalSplit {
   position: absolute;
   inset: 0;
@@ -17,7 +18,7 @@
   position: absolute;
   inset: 0;
   background: var(--bg-charcoal);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 10%);
   z-index: 1;
 }
 
@@ -25,7 +26,7 @@
   position: absolute;
   inset: 0;
   background: var(--bg-light);
-  clip-path: polygon(0 60%, 100% 100%, 0 100%);
+  clip-path: polygon(0 10%, 100% 100%, 0 100%);
   z-index: 1;
 }
 
@@ -106,17 +107,6 @@
   }
 }
 
-/* Hero content - center */
-.heroContent {
-  position: relative;
-  z-index: 5;
-  text-align: center;
-  padding: 2rem;
-  max-width: 600px;
-  opacity: 0;
-  animation: fadeInUp 1s ease-out 1s forwards;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -128,21 +118,81 @@
   }
 }
 
-.mainHeading {
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.textClipDark,
+.textClipLight {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+.textClipDark {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 10%);
+}
+
+.textClipLight {
+  clip-path: polygon(0 10%, 100% 100%, 0 100%);
+}
+
+.clipInner {
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.clipInnerLightInk {
+  color: #fff;
+}
+
+.clipInnerDarkInk {
+  color: var(--text-dark);
+}
+
+.heroTitle {
   font-size: clamp(1.8rem, 5vw, 2.8rem);
-  color: var(--text-light);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.clipInnerLightInk .heroTitle {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .subHeading {
   display: block;
   font-size: 0.6em;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
   margin-top: 0.25rem;
+}
+
+.clipInnerLightInk .subHeading {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.clipInnerDarkInk .subHeading {
+  color: rgba(10, 14, 20, 0.88);
 }
 
 .pinService {
@@ -156,17 +206,16 @@
   margin-bottom: 0.5rem;
 }
 
-.pinService p {
+.pinLine {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--text-dark);
   font-family: var(--font-base);
 }
 
 .whatsappBtn {
   display: inline-block;
-  background: #25D366;
+  background: #25d366;
   color: white !important;
   padding: 14px 32px;
   border-radius: 8px;
@@ -186,9 +235,8 @@
   margin-top: 2rem;
 }
 
-.ownerName {
+.ownerLine {
   font-weight: 700;
-  color: var(--text-dark);
   font-size: 1rem;
   margin-bottom: 0.25rem;
 }
@@ -199,13 +247,20 @@
   gap: 8px;
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-dark);
   font-family: var(--font-base);
 }
 
 .phoneIcon {
-  width: 24px;
+  width: 36px;
   height: 24px;
+  flex-shrink: 0;
+}
+
+.clipInnerLightInk .phoneIcon {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.clipInnerDarkInk .phoneIcon {
   color: var(--accent-blue);
 }
 
