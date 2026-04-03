@@ -15,7 +15,7 @@ export function About() {
           </div>
           <div className={styles.profileInfo}>
             <h2>Aman Tadam</h2>
-            <p className={styles.role}>Owner, Bike on Rent</p>
+            <p className={styles.role}>Owner of <i>Mauli Rental Services</i>, Bike on Rent</p>
             <p>Our business offers bikes and cars on rent to make city travel simple and comfortable.</p>
             <p>We focus on providing well-maintained vehicles and reliable service so customers can travel without worry.</p>
             <p>Along with rental services, we also provide pickup and drop options for customers who need quick and convenient transportation within the city.</p>

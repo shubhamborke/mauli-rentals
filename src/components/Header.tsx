@@ -18,6 +18,7 @@ export function Header() {
       <Link to="/" className={styles.logo}>
         <img src="/logo/Screenshot 2026-03-22 131018.png" alt="Bike on Rent" />
       </Link>
+      <img src="/profile-photo/Gajanan Maharaj Photo.png" alt="Gajanan Maharaj" style={{width: '50px', height: '50px'}}/>
 
       <button
         className={styles.menuToggle}
@@ -28,6 +29,7 @@ export function Header() {
         <span />
         <span />
       </button>
+
 
       <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
         {navLinks.map(({ path, label }) => (
