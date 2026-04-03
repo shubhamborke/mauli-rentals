@@ -349,7 +349,7 @@ export const vehicles: Vehicle[] = [
       'Maruti Suzuki Dzire (silver) — compact sedan with comfortable seating for four, chilled AC, and a practical boot for luggage on outstation trips.',
     specs: ['Petrol engine (model dependent)', 'Power steering', 'Spacious cabin & boot'],
     originalPrice: 2000,
-    discountedPrice: 200,
+    discountedPrice: 1800,
     discountPercent: 10,
   },
 ];
