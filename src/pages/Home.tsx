@@ -15,7 +15,6 @@ const serviceHighlights = [
 
 export function Home() {
   const featuredVehicles = vehicles.slice(0, 6);
-  console.log(vehicles)
 
   return (
     <>

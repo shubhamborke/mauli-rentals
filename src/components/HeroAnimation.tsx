@@ -12,6 +12,7 @@ function HeroTextColumn({ variant }: { variant: 'onDark' | 'onLight' }) {
     <div
       className={`${styles.clipInner} ${onDark ? styles.clipInnerLightInk : styles.clipInnerDarkInk}`}
     >
+      <img src="/profile-photo/Gajanan Maharaj Photo.png" alt="Gajanan Maharaj" style={{width: '65px', height: '57px'}}/>
       <div className={styles.heroTitle}>
         Bikes and Cars on Rent
         <span className={styles.subHeading}>with Easy Pickup &amp; Drop</span>
@@ -58,11 +59,12 @@ export function HeroAnimation() {
 
   return (
     <section className={`${styles.hero} ${animationDone ? styles.done : ''}`}>
+      
       <div className={styles.diagonalSplit}>
         <div className={styles.lightSection} />
         <div className={styles.darkSection} />
       </div>
-
+      
       <h1 className={styles.srOnly}>
         Bikes and Cars on Rent with Easy Pickup &amp; Drop
       </h1>
